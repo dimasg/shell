@@ -1,0 +1,95 @@
+# zsh config v0.2 by proft .:: http://proft.com.ua ::.
+
+# -[ prompt for centos ]-
+#autoload colors; colors
+#PROMPT="%B[%{$fg[yellow]%}%n%{$reset_color%}%b@%B%{$fg[blue]%}%m%b%{$reset_color%}%B]%b "
+#RPROMPT="%{$fg_bold[grey]%}%~/%{$reset_color%}%"
+#export PS1="%B[%{$fg[yellow]%}%n%{$reset_color%}%b@%B%{$fg[blue]%}%m%b%{$reset_color%}:%B]%b "
+
+# -[ prompt for ubuntu ]-
+PROMPT='%B%F{yellow}%n@%m%f%F{blue}%f%b%(!.#.$) '
+RPROMPT="%{$fg_bold[grey]%}%~/%{$reset_color%}%"
+
+# -[ completion ]-
+autoload -Uz compinit
+compinit
+
+zstyle ':completion:*' menu yes select
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*' list-colors ''
+zstyle ':completion:*' list-prompt '%SAt %p: Hit TAB for more, or the character to insert%s'
+zstyle ':completion:*' select-prompt '%SScrolling active: current selection at %p%s'
+zstyle ':completion:*' use-compctl false
+zstyle ':completion:*' verbose true
+
+zstyle ':completion:*:processes' command 'ps -xuf'
+zstyle ':completion:*:processes' sort false
+zstyle ':completion:*:processes-names' command 'ps xho command'
+
+zstyle ':completion:*:descriptions' format '%U%B%d%b%u'
+zstyle ':completion:*:warnings' format '%BSorry, no matches for: %d%b'
+
+# -[ history ]-
+HISTFILE=~/.zsh_history
+HISTSIZE=2000
+SAVEHIST=1000
+
+setopt append_history hist_ignore_all_dups hist_ignore_space autocd correct_all extendedglob
+export LS_COLORS='*.py=3'
+
+# -[ functions ]-
+name() {
+    name=$1
+    vared -c -p 'rename to: ' name
+    command mv $1 $name
+}
+
+mkd() { mkdir $1; cd $1 }
+lcd() { cd "$1" && ls }
+
+# -[ alias ]-
+alias j=jobs
+alias pu=pushd
+alias po=popd
+alias d='dirs -v'
+alias h=history
+alias grep=egrep
+alias ll='ls -l'
+alias la='ls -a'
+alias ls='ls --classify --color --human-readable --group-directories-first'
+alias cp='nocorrect cp --interactive --verbose --recursive --preserve=all'
+alias mv='nocorrect mv --verbose --interactive'
+alias rm='nocorrect rm -Irv'
+alias mkdir='nocorrect mkdir'
+
+alias -g M='| more'
+alias -g L='| less'
+alias -g H='| head'
+alias -g T='| tail'
+alias -g G="| grep"
+
+[[ -f /usr/bin/grc ]] && {
+  alias ping="grc --colour=auto ping"
+  alias traceroute="grc --colour=auto traceroute"
+  alias make="grc --colour=auto make"
+  alias diff="grc --colour=auto diff"
+  alias cvs="grc --colour=auto cvs"
+  alias netstat="grc --colour=auto netstat"
+}
+
+alias cat="grc cat"
+alias tail="grc tail"
+alias head="grc head"
+
+# apt
+alias ai='sudo apt-get install'
+alias au='sudo apt-get update'
+alias aupgrade='sudo apt-get upgrade'
+alias asearch='sudo apt-cache search'
+alias ashow='sudo apt-cache show'
+
+# django
+alias djrs="python manage.py runserver"
+alias djdb="python manage.py syncdb"
+alias djs="python manage.py shell"
+alias djms="python -m smtpd -n -c DebuggingServer localhost:1025"
