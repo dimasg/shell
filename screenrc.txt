@@ -1,0 +1,66 @@
+# включаем utf8, ага
+defutf8 on 
+# настройка режим управления потоком окна.
+defflow on  
+# включает login-режим (для обновления /var/run/utmp)
+deflogin on 
+# выключает использование или эмуляцию hardstatus-строки терминала
+# хотя можно использовать вместо caption
+hardstatus off
+# заголовок, о форматировании заголовка смотреть в мане
+#caption always ' %{-b dd}%-w%{cd}%n* %t%{-}%+w %{cd}%-=(%l) %d/%m %c%{-} '
+#caption always "%{= dw}%-w%{=b .B}%n %t%{-}%+w"
+caption always "%{wb}%-w%{wr}%n %t%{-}%+w %=%{c}%{y}%d::%m::%Y %{g}%c:%s" 
+
+# включаем визуальный звонок
+vbell on
+# сообщение для (visual bell)
+vbell_msg "vbell %n" 
+# сообщение если в фоновом окне bell character, ^G
+bell_msg "Bell %n"
+# сообщение если есть активность в наблюдаемом окне
+activity "Activity on %n" 
+# собственно включаем монитор активности, если off то включается командой ^a M
+defmonitor on
+# количество сохраненных строк
+defscrollback 1000
+# при копировании строки будут разделяться символами CR . LF
+crlf off 
+# нахрен нам страница приветсвия
+startup_message off 
+#
+# по умолчанию детатчится при разрыве связи с терминалом
+# для работы по ssh самое оно
+autodetach on
+# поддержка alternate screen, типо отчистка экрана при выходе из манов и пр.
+altscreen on
+# как же мы без скринсейвера
+idle 30 eval "screen cmatrix -f -o -u 10" "idle 0"
+# вешаем ^a + на увеличение окон на 3 и ^a - на уменьшение на 1
+bind + resize +3
+bind - resize -1
+# имя файла для чтения и записи буфера обмена, по дефолту пишет
+# в /tmp/screen-exchange
+# bufferfile ~/.bak/screen-exchange
+
+# hardstatus alwayslastline 
+hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %d/%m %{W}%c %{g}]'
+
+# escape ^za # Ctrl-z вместо Ctrl-a
+
+bindkey -k F2 next # переключение табов по <--f11 f12-->
+bindkey -k F1 prev
+
+term screen-256color
+attrcolor b ".I"
+# Tell screen how to set colors. AB = background, AF=foreground
+# termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+# # Erase background with current bg color.  Not needed if TERM=screen-256color
+# defbce "on"
+#
+
+defnonblock     5
+
+screen 1
+screen 2
+screen 3
