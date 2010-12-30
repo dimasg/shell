@@ -47,7 +47,7 @@ fi
 
 PATH=~/bin:$PATH
 
-EDITOR=vim
+export EDITOR=vim
 
 export LANG="ru_RU.UTF-8"
 export LC_NUMERIC="C"
