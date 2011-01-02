@@ -1,66 +1,83 @@
-# включаем utf8, ага
-defutf8 on 
-# настройка режим управления потоком окна.
-defflow on  
-# включает login-режим (для обновления /var/run/utmp)
-deflogin on 
-# выключает использование или эмуляцию hardstatus-строки терминала
-# хотя можно использовать вместо caption
-hardstatus off
-# заголовок, о форматировании заголовка смотреть в мане
-#caption always ' %{-b dd}%-w%{cd}%n* %t%{-}%+w %{cd}%-=(%l) %d/%m %c%{-} '
-#caption always "%{= dw}%-w%{=b .B}%n %t%{-}%+w"
-caption always "%{wb}%-w%{wr}%n %t%{-}%+w %=%{c}%{y}%d::%m::%Y %{g}%c:%s" 
+# no annoying audible bell, please
+vbell off
 
-# включаем визуальный звонок
-vbell on
-# сообщение для (visual bell)
-vbell_msg "vbell %n" 
-# сообщение если в фоновом окне bell character, ^G
-bell_msg "Bell %n"
-# сообщение если есть активность в наблюдаемом окне
-activity "Activity on %n" 
-# собственно включаем монитор активности, если off то включается командой ^a M
-defmonitor on
-# количество сохраненных строк
-defscrollback 1000
-# при копировании строки будут разделяться символами CR . LF
-crlf off 
-# нахрен нам страница приветсвия
-startup_message off 
+# detach on hangup
+autodetach on 
+
+# don't display the copyright page
+startup_message off
+
+# emulate .logout message
+pow_detach_msg "Screen session of \$LOGNAME \$:cr:\$:nl:ended."
+
+# Make the output buffer large for (fast) xterms.
+termcapinfo xterm* OL=10000
+
+# tell screen that xterm can switch to dark background and has function
+# keys.
+termcapinfo xterm 'VR=\E[?5h:VN=\E[?5l'
+termcapinfo xterm 'k1=\E[11~:k2=\E[12~:k3=\E[13~:k4=\E[14~'
+termcapinfo xterm 'kh=\E[1~:kI=\E[2~:kD=\E[3~:kH=\E[4~:kP=\E[H:kN=\E[6~'
+
+# special xterm hardstatus: use the window title.
+termcapinfo xterm 'hs:ts=\E]2;:fs=\007:ds=\E]2;screen\007'
+termcapinfo xterm 'hs:ts=\E]2;:fs=\007:ds=\E]1;screen\007'
+
+################
 #
-# по умолчанию детатчится при разрыве связи с терминалом
-# для работы по ssh самое оно
-autodetach on
-# поддержка alternate screen, типо отчистка экрана при выходе из манов и пр.
-altscreen on
-# как же мы без скринсейвера
-idle 30 eval "screen cmatrix -f -o -u 10" "idle 0"
-# вешаем ^a + на увеличение окон на 3 и ^a - на уменьшение на 1
-bind + resize +3
-bind - resize -1
-# имя файла для чтения и записи буфера обмена, по дефолту пишет
-# в /tmp/screen-exchange
-# bufferfile ~/.bak/screen-exchange
-
-# hardstatus alwayslastline 
-hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %d/%m %{W}%c %{g}]'
-
-# escape ^za # Ctrl-z вместо Ctrl-a
-
-bindkey -k F2 next # переключение табов по <--f11 f12-->
-bindkey -k F1 prev
-
-term screen-256color
-attrcolor b ".I"
-# Tell screen how to set colors. AB = background, AF=foreground
-# termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
-# # Erase background with current bg color.  Not needed if TERM=screen-256color
-# defbce "on"
+# default windows
 #
 
-defnonblock     5
+#screen -t ctrl1 0 ssh ctrl1 
+screen -t ctrl2 0 ssh ctrl2
+#screen -t ctrl3 1 ssh ctrl3
+screen -t ctrl4 1 ssh ctrl4
+screen -t ctrl12 2 ssh ctrl12
+screen -t ctrl15 3 ssh ctrl15
+screen -t ctrl16 4 ssh ctrl16
+screen -t bill-db 5 psql --host XXXXXXXXXXXXXXXXXXXXXX -U pgsql XXXXXXXX
+screen -t shop-db 6 psql --host XXXXXXXXXXXXXXXXXXXXXX -U pgsql XXXXXXXX
+#screen -t shop.test 8 ssh shop.test 
+#screen -t shop.test2 9 ssh shop2.test 
+#screen -t srv2-db 8 ssh srv2.test
+#screen -t srv3-db 9 ssh srv3.test
+#screen -t srv4-db 9 ssh srv4.test
+#screen -t u45281 7 ssh XXXXXXXXXXXXXXXXXXXXXXXXXXXXX -l uXXXXXXXX 
+#screen -t srv5-1 8 ssh srv5.test
+#screen -t srv5-2 9 ssh srv5.test
+#screen -t srv5-3 10 ssh srv5.test
+screen -t srv5-log 7 cd ~/apache/logs
+screen -t srv5-1 8
+screen -t srv5-2 9  
+screen -t srv5-3 10  
+screen -t srv5-4 11
+screen -t srv5-5 12
+#screen -t srv5-6 6  
+#screen -t srv5-7 7  
+# screen -t 40 2 rlogin faui40
 
-screen 1
-screen 2
-screen 3
+# caption always "%3n %t%? @%u%?%? [%h]%?"
+# hardstatus alwaysignore
+# hardstatus alwayslastline "%w"
+
+#caption always "%{Yb} %Y-%02m-%02d %0c %{k}|%{C} %LD %{k}|%{G} %l %{k}|%{W} %-Lw%{+u}%n %t%{-u}%+Lw"
+caption always "%{Yb} %Y-%02m-%02d %0c %{k}|%{W} %-Lw%{+u}%n %t%{-u}%+Lw"
+
+#caption always "%{Yb} %D %Y-%02m-%02d %0c %{k}|%{G} %l %{k}|%{W} %-w%{+b}%n %t%{-b}%+w"
+#shelltitle '$ |bash'
+#hardstatus string "[%n] %t"
+#caption always "%{.by}%-w%{.yb}%n %t%{-}%+w %=%c"
+
+#set titlestring=%t
+#set titleold=bash
+
+#if &term == "screen"
+#  set t_ts=^[k
+#    set t_fs=^[\
+#    endif
+#
+#  if &term == "screen" || &term == "xterm"
+#    set title
+#endif
+
+
