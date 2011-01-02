@@ -4,13 +4,20 @@ defutf8 on
 defflow on  
 # включает login-режим (для обновления /var/run/utmp)
 deflogin on 
+# emulate .logout message
+pow_detach_msg "Screen session of \$LOGNAME \$:cr:\$:nl:ended."
+
 # выключает использование или эмуляцию hardstatus-строки терминала
 # хотя можно использовать вместо caption
 hardstatus off
 # заголовок, о форматировании заголовка смотреть в мане
 #caption always ' %{-b dd}%-w%{cd}%n* %t%{-}%+w %{cd}%-=(%l) %d/%m %c%{-} '
 #caption always "%{= dw}%-w%{=b .B}%n %t%{-}%+w"
-caption always "%{wb}%-w%{wr}%n %t%{-}%+w %=%{c}%{y}%d::%m::%Y %{g}%c:%s" 
+##caption always "%{wb}%-w%{wr}%n %t%{-}%+w %=%{c}%{y}%d::%m::%Y %{g}%c:%s" 
+#caption always "%{Yb} %Y-%02m-%02d %0c %{k}|%{C} %LD %{k}|%{G} %l %{k}|%{W} %-Lw%{+u}%n %t%{-u}%+Lw"
+##caption always "%{Yb} %Y-%02m-%02d %0c %{k}|%{W} %-Lw%{+u}%n %t%{-u}%+Lw"
+#caption always "%{Yb} %D %Y-%02m-%02d %0c %{k}|%{G} %l %{k}|%{W} %-w%{+b}%n %t%{-b}%+w"
+caption always "%{.by}%-w%{.yb}%n %t%{-}%+w %=%c"
 
 # включаем визуальный звонок
 vbell on
@@ -36,31 +43,77 @@ autodetach on
 altscreen on
 # как же мы без скринсейвера
 idle 30 eval "screen cmatrix -f -o -u 10" "idle 0"
-# вешаем ^a + на увеличение окон на 3 и ^a - на уменьшение на 1
-bind + resize +3
-bind - resize -1
 # имя файла для чтения и записи буфера обмена, по дефолту пишет
 # в /tmp/screen-exchange
 # bufferfile ~/.bak/screen-exchange
 
 # hardstatus alwayslastline 
-hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %d/%m %{W}%c %{g}]'
+##hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %d/%m %{W}%c %{g}]'
+hardstatus string "[%n] %t"
 
-# escape ^za # Ctrl-z вместо Ctrl-a
-
-bindkey -k F2 next # переключение табов по <--f11 f12-->
-bindkey -k F1 prev
-
-term screen-256color
+# tell screen that xterm can switch to dark background and has function
+# keys.
+term xterm
+#term screen-256color
+#
 attrcolor b ".I"
 # Tell screen how to set colors. AB = background, AF=foreground
 # termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
-# # Erase background with current bg color.  Not needed if TERM=screen-256color
+# Make the output buffer large for (fast) xterms.
+termcapinfo xterm* OL=16000
+
+# tell screen that xterm can switch to dark background and has function # keys.
+termcapinfo xterm 'VR=\E[?5h:VN=\E[?5l'
+termcapinfo xterm 'k1=\E[11~:k2=\E[12~:k3=\E[13~:k4=\E[14~'
+termcapinfo xterm 'kh=\E[1~:kI=\E[2~:kD=\E[3~:kH=\E[4~:kP=\E[H:kN=\E[6~'
+
+# special xterm hardstatus: use the window title.
+termcapinfo xterm 'hs:ts=\E]2;:fs=\007:ds=\E]2;screen\007'
+termcapinfo xterm 'hs:ts=\E]2;:fs=\007:ds=\E]1;screen\007'
+
+# Erase background with current bg color.  Not needed if TERM=screen-256color
 # defbce "on"
 #
 
 defnonblock     5
 
+# Автоматическая ловля в заголовок %t имени запущенного процесса:
+
+shelltitle '$ |bash'
+#shelltitle '] |bash'
+
+# вешаем ^a + на увеличение окон на 3 и ^a - на уменьшение на 1
+bind + resize +3
+bind - resize -1
+
+# escape ^za # Ctrl-z вместо Ctrl-a
+bindkey -k F2 next # переключение табов по <--f11 f12-->
+bindkey -k F1 prev
+
+# Нумерация окон с 1 и бинды F1-F10 на окна 1-10
+
+# нумерация окон с 1
+bind c screen 1
+bind ^c screen 1
+bind 0 select 10
+
+#bindkey -k k1 select 1
+#bindkey -k k2 select 2
+#bindkey -k k3 select 3
+#bindkey -k k4 select 4
+#bindkey -k k5 select 5
+#bindkey -k k6 select 6
+#bindkey -k k7 select 7
+#bindkey -k k8 select 8
+#bindkey -k k9 select 9
+#bindkey -k k; select 10
+#bindkey -k F1 prev
+#bindkey -k F2 next
+
+#chdir
+
 screen 1
 screen 2
 screen 3
+
+select 1
