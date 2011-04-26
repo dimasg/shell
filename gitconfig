@@ -3,17 +3,17 @@
 	email = 
 
 [core]
-    autocrlf = false
-    symlinks = false
-    quotepath = false
-    repositoryformatversion = 0
-    filemode = false
-    bare = false
-    logallrefupdates = true
+	autocrlf = false
+	symlinks = false
+	quotepath = false
+	repositoryformatversion = 0
+	filemode = false
+	bare = false
+	logallrefupdates = true
 
 [i18n]
-    commitencoding = utf-8
-    logoutputencoding = cp866
+	commitencoding = utf-8
+	logoutputencoding = cp866
 
 [color]
 	ui = auto
@@ -48,3 +48,4 @@
 	kado = !gitk --all --date-order
 	kasd = !gitk --all --simplify-by-decoration
 
+# vim: noet ts=4
