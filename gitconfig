@@ -10,6 +10,9 @@
 	filemode = false
 	bare = false
 	logallrefupdates = true
+	symlinks = false
+	ignorecase = true
+	quotepath = false
 
 [i18n]
 	commitencoding = utf-8
