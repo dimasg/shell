@@ -29,6 +29,7 @@ alias ll='ls -l'
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
+alias vim='vim -p'
 
 # Change the window title of X terminals 
 case $TERM in
