@@ -52,6 +52,7 @@ fi
 PATH=~/bin:$PATH
 
 export EDITOR=vim
+#export MANPAGER=/usr/bin/vimmanpager
 export HISTCONTROL="ignoredups:erasedups"
 export HISTIGNORE="&:ls:[bf]g:exit"
 #export HISTTIMEFORMAT='%h %d %H:%M:%S '
