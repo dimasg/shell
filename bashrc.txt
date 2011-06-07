@@ -63,6 +63,8 @@ shopt -s histappend
 PROMPT_COMMAND='history -a'
 export HISTSIZE=3000
 export HISTFILESIZE=$HISTSIZE
+# for git and other msys-related 
+#export TERM=msys
 
 export LANG="ru_RU.UTF-8"
 export LC_NUMERIC="C"
