@@ -96,3 +96,10 @@ if [ -f /usr/bin/grc ]; then
   alias logt="grc tail"
   alias logh="grc head"
 fi
+
+# github.com/rkitover/vimpager
+if [ -f ~/bin/vimpager ]; then
+  export PAGER=~/bin/vimpager
+  alias less=$PAGER
+  alias zless=$PAGER
+fi
