@@ -42,7 +42,7 @@ case $TERM in
 esac
 
 # uncomment the following to activate bash-completion:
-#[ -f /etc/profile.d/bash-completion ] && source /etc/profile.d/bash-completion
+[ -f /etc/profile.d/bash-completion ] && source /etc/profile.d/bash-completion
 
 # Midnight Commander chdir enhancement
 if [ -f /usr/share/mc/mc.gentoo ]; then
@@ -52,9 +52,18 @@ fi
 PATH=~/bin:$PATH
 
 export EDITOR=vim
-#export MANPAGER=/usr/bin/vimmanpager
+if [ -f ~/bin/vimpager ]; then
+  export MANPAGER=/usr/bin/vimmanpager
+fi
+# github.com/rkitover/vimpager
+if [ -f ~/bin/vimpager ]; then
+  export PAGER=~/bin/vimpager
+  alias less=$PAGER
+  alias zless=$PAGER
+fi
 export HISTCONTROL="ignoredups:erasedups"
-export HISTIGNORE="&:ls:[bf]g:exit"
+export HISTIGNORE="ls:[bf]g:exit:sudo *"
+#export HISTIGNORE="&:ls:[bf]g:exit:[A-Z]*"
 #export HISTTIMEFORMAT='%h %d %H:%M:%S '
 
 shopt -s cdspell
@@ -95,11 +104,4 @@ if [ -f /usr/bin/grc ]; then
   alias logc="grc cat"
   alias logt="grc tail"
   alias logh="grc head"
-fi
-
-# github.com/rkitover/vimpager
-if [ -f ~/bin/vimpager ]; then
-  export PAGER=~/bin/vimpager
-  alias less=$PAGER
-  alias zless=$PAGER
 fi
