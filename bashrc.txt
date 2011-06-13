@@ -62,8 +62,7 @@ if [ -f ~/bin/vimpager ]; then
   alias zless=$PAGER
 fi
 export HISTCONTROL="ignoredups:erasedups"
-export HISTIGNORE="ls:[bf]g:exit:sudo *"
-#export HISTIGNORE="&:ls:[bf]g:exit:[A-Z]*"
+export HISTIGNORE="&:ls:[bf]g:exit:sudo *"
 #export HISTTIMEFORMAT='%h %d %H:%M:%S '
 
 shopt -s cdspell
