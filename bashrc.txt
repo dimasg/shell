@@ -51,16 +51,19 @@ fi
 
 PATH=~/bin:$PATH
 
+if [ -x /usr/bin/vimpager ]; then
+	export VIMPAGER=/usr/bin/vimpager
+	# github.com/rkitover/vimpager
+elif [ -x ~/bin/vimpager ]; then
+	export VIMPAGER=~/bin/vimpager
+fi
+if [ -x $VIMPAGER ]; then
+	export MANPAGER=$VIMPAGER
+	export PAGER=$VIMPAGER
+	alias less=$PAGER
+	alias zless=$PAGER
+fi
 export EDITOR=vim
-if [ -f ~/bin/vimpager ]; then
-  export MANPAGER=/usr/bin/vimmanpager
-fi
-# github.com/rkitover/vimpager
-if [ -f ~/bin/vimpager ]; then
-  export PAGER=~/bin/vimpager
-  alias less=$PAGER
-  alias zless=$PAGER
-fi
 export HISTCONTROL="ignoredups:erasedups"
 export HISTIGNORE="&:ls:[bf]g:exit:sudo *"
 #export HISTTIMEFORMAT='%h %d %H:%M:%S '
@@ -92,15 +95,16 @@ export LESS_TERMCAP_us=$'\E[04;38;5;146m' # начало подчеркнуто�
 export LESS_TERMCAP_ue=$'\E[0m'           # конец подчеркнутого
 
 if [ -f /usr/bin/grc ]; then
-  alias ping="grc --colour=auto ping"
-  alias traceroute="grc --colour=auto traceroute"
-  alias make="grc --colour=auto make"
-  alias diff="grc --colour=auto diff"
-  alias cvs="grc --colour=auto cvs"
-  alias svn="grc --colour=auto svn"
-  alias netstat="grc --colour=auto netstat"
+	alias ping="grc --colour=auto ping"
+	alias traceroute="grc --colour=auto traceroute"
+	alias make="grc --colour=auto make"
+	alias diff="grc --colour=auto diff"
+	alias cvs="grc --colour=auto cvs"
+	alias svn="grc --colour=auto svn"
+	alias netstat="grc --colour=auto netstat"
 
-  alias logc="grc cat"
-  alias logt="grc tail"
-  alias logh="grc head"
+	alias logc="grc cat"
+	alias logt="grc tail"
+	alias logh="grc head"
 fi
+# vim: ts=4 sw=4 ft=sh noet
