@@ -107,4 +107,5 @@ if [ -f /usr/bin/grc ]; then
 	alias logt="grc tail"
 	alias logh="grc head"
 fi
+
 # vim: ts=4 sw=4 ft=sh noet
