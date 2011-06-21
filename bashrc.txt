@@ -24,6 +24,8 @@ if [[ -f ~/.dir_colors ]]; then
 else
 	eval `dircolors -b /etc/DIR_COLORS`
 fi
+
+# User specific aliases and functions
 alias ls='ls --color=auto'
 alias ll='ls -l'
 alias rm='rm -i'
@@ -65,7 +67,7 @@ if [ -x $VIMPAGER ]; then
 fi
 export EDITOR=vim
 export HISTCONTROL="ignoredups:erasedups"
-export HISTIGNORE="&:ls:[bf]g:exit:sudo *"
+export HISTIGNORE="ls:[bf]g:exit:sudo *"
 #export HISTTIMEFORMAT='%h %d %H:%M:%S '
 
 shopt -s cdspell
