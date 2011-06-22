@@ -39,9 +39,9 @@ export LS_COLORS='*.py=3'
 
 # -[ functions ]-
 name() {
-    name=$1
-    vared -c -p 'rename to: ' name
-    command mv $1 $name
+	name=$1
+	vared -c -p 'rename to: ' name
+	command mv $1 $name
 }
 
 mkd() { mkdir $1; cd $1 }
@@ -69,12 +69,12 @@ alias -g T='| tail'
 alias -g G="| grep"
 
 [[ -f /usr/bin/grc ]] && {
-  alias ping="grc --colour=auto ping"
-  alias traceroute="grc --colour=auto traceroute"
-  alias make="grc --colour=auto make"
-  alias diff="grc --colour=auto diff"
-  alias cvs="grc --colour=auto cvs"
-  alias netstat="grc --colour=auto netstat"
+	alias ping="grc --colour=auto ping"
+	alias traceroute="grc --colour=auto traceroute"
+	alias make="grc --colour=auto make"
+	alias diff="grc --colour=auto diff"
+	alias cvs="grc --colour=auto cvs"
+	alias netstat="grc --colour=auto netstat"
 }
 
 alias cat="grc cat"
@@ -93,3 +93,5 @@ alias djrs="python manage.py runserver"
 alias djdb="python manage.py syncdb"
 alias djs="python manage.py shell"
 alias djms="python -m smtpd -n -c DebuggingServer localhost:1025"
+
+# vim: ts=4 sw=4 ft=zsh noet

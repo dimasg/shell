@@ -24,6 +24,8 @@ if [[ -f ~/.dir_colors ]]; then
 else
 	eval `dircolors -b /etc/DIR_COLORS`
 fi
+
+# User specific aliases and functions
 alias ls='ls --color=auto'
 alias ll='ls -l'
 alias rm='rm -i'
@@ -43,7 +45,7 @@ case $TERM in
 esac
 
 # uncomment the following to activate bash-completion:
-#[ -f /etc/profile.d/bash-completion ] && source /etc/profile.d/bash-completion
+[ -f /etc/profile.d/bash-completion ] && source /etc/profile.d/bash-completion
 
 # Midnight Commander chdir enhancement
 if [ -f /usr/share/mc/mc.gentoo ]; then
@@ -52,9 +54,21 @@ fi
 
 PATH=~/bin:$PATH
 
+if [ -x /usr/bin/vimpager ]; then
+	export VIMPAGER=/usr/bin/vimpager
+	# github.com/rkitover/vimpager
+elif [ -x ~/bin/vimpager ]; then
+	export VIMPAGER=~/bin/vimpager
+fi
+if [ -x $VIMPAGER ]; then
+	export MANPAGER=$VIMPAGER
+	export PAGER=$VIMPAGER
+	alias less=$PAGER
+	alias zless=$PAGER
+fi
 export EDITOR=vim
 export HISTCONTROL="ignoredups:erasedups"
-export HISTIGNORE="&:ls:[bf]g:exit"
+export HISTIGNORE="ls:[bf]g:exit:sudo *"
 #export HISTTIMEFORMAT='%h %d %H:%M:%S '
 
 shopt -s cdspell
@@ -74,3 +88,27 @@ export WINE_CURSOR=X
 
 #export PS1='\[\033[01;32m\]\u@\h\[\033[01;34m\] \w $(__git_ps1 "(%s)") \$\[\033[00m\] '
 export PS1='\[\033[01;32m\]\u@\h\[\033[01;34m\] \W \$\[\033[00m\] '
+
+export LESS_TERMCAP_mb=$'\E[01;31m'       # начала мигающего
+export LESS_TERMCAP_md=$'\E[01;38;5;74m'  # начало жирного текста
+export LESS_TERMCAP_me=$'\E[0m'           # окончание
+export LESS_TERMCAP_so=$'\E[38;5;246m'    # начала текста в инфобоксе
+export LESS_TERMCAP_se=$'\E[0m'           # конец его
+export LESS_TERMCAP_us=$'\E[04;38;5;146m' # начало подчеркнутого
+export LESS_TERMCAP_ue=$'\E[0m'           # конец подчеркнутого
+
+if [ -f /usr/bin/grc ]; then
+	alias ping="grc --colour=auto ping"
+	alias traceroute="grc --colour=auto traceroute"
+	alias make="grc --colour=auto make"
+	alias diff="grc --colour=auto diff"
+	alias cvs="grc --colour=auto cvs"
+	alias svn="grc --colour=auto svn"
+	alias netstat="grc --colour=auto netstat"
+
+	alias logc="grc cat"
+	alias logt="grc tail"
+	alias logh="grc head"
+fi
+
+# vim: ts=4 sw=4 ft=sh noet
