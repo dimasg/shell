@@ -30,6 +30,7 @@ alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
 alias vim='vim -p'
+alias gvim='gvim -p'
 
 # Change the window title of X terminals 
 case $TERM in
