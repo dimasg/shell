@@ -104,11 +104,14 @@ if [ -f /usr/bin/grc ]; then
 	alias diff="grc --colour=auto diff"
 	alias cvs="grc --colour=auto cvs"
 	alias svn="grc --colour=auto svn"
+	alias svnst='grc --colour=auto svn st | grep -v "^?"'
 	alias netstat="grc --colour=auto netstat"
 
 	alias logc="grc cat"
 	alias logt="grc tail"
 	alias logh="grc head"
+else
+	alias svnst='svn st | grep -v "^?"'
 fi
 
 # vim: ts=4 sw=4 ft=sh noet
