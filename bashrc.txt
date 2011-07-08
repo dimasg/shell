@@ -104,6 +104,7 @@ if [ -f /usr/bin/grc ]; then
 	alias diff="grc --colour=auto diff"
 	alias cvs="grc --colour=auto cvs"
 	alias svn="grc --colour=auto svn"
+	alias svnd='grc --colour=auto svn diff --diff-cmd diff -x -uw'
 	alias svnst='grc --colour=auto svn st | grep -v "^?"'
 	alias netstat="grc --colour=auto netstat"
 
@@ -111,6 +112,7 @@ if [ -f /usr/bin/grc ]; then
 	alias logt="grc tail"
 	alias logh="grc head"
 else
+	alias svnd='svn diff --diff-cmd diff -x -uw'
 	alias svnst='svn st | grep -v "^?"'
 fi
 
