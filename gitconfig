@@ -21,6 +21,9 @@
 [color]
 	ui = auto
 
+[merge]
+	tool = vimdiff
+
 [alias]
 	st = status
 	ci = commit
