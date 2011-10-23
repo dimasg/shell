@@ -98,15 +98,17 @@ export LESS_TERMCAP_us=$'\E[04;38;5;146m' # начало подчеркнуто�
 export LESS_TERMCAP_ue=$'\E[0m'           # конец подчеркнутого
 
 if [ -f /usr/bin/grc ]; then
-	alias ping="grc --colour=auto ping"
-	alias traceroute="grc --colour=auto traceroute"
-	alias make="grc --colour=auto make"
-	alias diff="grc --colour=auto diff"
 	alias cvs="grc --colour=auto cvs"
+	alias diff="grc --colour=auto diff"
+	alias gcc="grc --colour=auto gcc"
+	alias log="grc --colour=auto log"
+	alias make="grc --colour=auto make"
+	alias netstat="grc --colour=auto netstat"
+	alias ping="grc --colour=auto ping"
 	alias svn="grc --colour=auto svn"
 	alias svnd='grc --colour=auto svn diff --diff-cmd diff -x -uw'
 	alias svnst='grc --colour=auto svn st | grep -v "^?"'
-	alias netstat="grc --colour=auto netstat"
+	alias traceroute="grc --colour=auto traceroute"
 
 	alias logc="grc cat"
 	alias logt="grc tail"
