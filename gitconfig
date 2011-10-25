@@ -34,6 +34,7 @@
 	ds = diff -C --stat
 	dsp = diff -C --stat -p
 	dw = diff -C --color-words
+	dp = diff --patch -U --no-prefix
 
 	l = log -C --decorate
 	ls = log -C --stat --decorate
