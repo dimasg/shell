@@ -54,6 +54,8 @@
 	kdo = !gitk --date-order
 	kado = !gitk --all --date-order
 	kasd = !gitk --all --simplify-by-decoration
+	
+	ri = rebase -i
 
 	sc = svn dcommit
 	sf = show --pretty="format:" --name-only 
