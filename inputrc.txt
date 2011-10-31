@@ -1,5 +1,11 @@
-"\e[A":history-search-backward
-"\e[B":history-search-forward
+# history search by up/down
+#"\e[A":history-search-backward
+#"\e[B":history-search-forward
+
+# history search by pg-up/down
+"\e[5~":history-search-backward
+"\e[6~":history-search-forward
+
 
 "\e[3~": delete-char
 
