@@ -56,6 +56,8 @@
 	kasd = !gitk --all --simplify-by-decoration
 	
 	ri = rebase -i
+	ri2 = rebase -i HEAD~2
+	ri3 = rebase -i HEAD~3
 
 	sc = svn dcommit
 	sf = show --pretty="format:" --name-only 
