@@ -34,6 +34,8 @@ alias mv='mv -i'
 alias vim='vim -p'
 alias gvim='gvim -p'
 
+alias pep8='pep8 --max-line-length=85'
+
 # Change the window title of X terminals 
 case $TERM in
 	xterm*|rxvt*|Eterm)
