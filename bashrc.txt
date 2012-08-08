@@ -26,8 +26,9 @@ else
 fi
 
 # User specific aliases and functions
-alias ls='ls --color=auto'
 alias ll='ls -l'
+alias ls='ls --color=auto'
+alias ltr='ls -ltr'
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
