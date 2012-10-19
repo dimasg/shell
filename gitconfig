@@ -59,6 +59,7 @@
 	ri = rebase -i
 	ri2 = rebase -i HEAD~2
 	ri3 = rebase -i HEAD~3
+	ri4 = rebase -i HEAD~4
 
 	sc = svn dcommit
 	sf = show --pretty="format:" --name-only 
