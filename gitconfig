@@ -64,5 +64,7 @@
 	sc = svn dcommit
 	sf = show --pretty="format:" --name-only 
 	sr = svn rebase
+	sup = !(git stash && git svn rebase >&2) | grep -v \"No local changes to save\" && git stash pop
+	up = !(git add . && git stash && git pull --rebase >&2) | grep -v \"No local changes to save\" && git stash pop
 
 # vim: ts=4 sw=4 ft=gitconfig noet
