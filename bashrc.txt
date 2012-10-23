@@ -113,6 +113,7 @@ if [ -f /usr/bin/grc ]; then
 	alias netstat="grc --colour=auto netstat"
 	alias ping="grc --colour=auto ping"
 	alias svn="grc --colour=auto svn"
+	alias svnc='grc --colour=auto svn st | grep "^C"'
 	alias svnd='grc --colour=auto svn diff --diff-cmd diff -x -uw'
 	alias svnst='grc --colour=auto svn st | grep -v "^?"'
 	alias traceroute="grc --colour=auto traceroute"
@@ -121,6 +122,7 @@ if [ -f /usr/bin/grc ]; then
 	alias logt="grc tail"
 	alias logh="grc head"
 else
+	alias svnc='svn st | grep "^C"'
 	alias svnd='svn diff --diff-cmd diff -x -uw'
 	alias svnst='svn st | grep -v "^?"'
 fi
