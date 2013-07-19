@@ -63,6 +63,7 @@ if [ -x $VIMPAGER ]; then
 	alias zless=$PAGER
 fi
 export EDITOR=vim
+export GREP_OPTIONS='--color=auto'
 export HISTCONTROL="ignoredups:erasedups"
 export HISTIGNORE="ls:[bf]g:exit:sudo *"
 #export HISTTIMEFORMAT='%h %d %H:%M:%S '
