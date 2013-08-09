@@ -3,7 +3,12 @@
 	email = 
 
 [core]
-	autocrlf = false
+# linux
+#	autocrlf = input
+#	safecrlf = false
+# windows
+#	autocrlf = true
+#	safecrlf = false
 	symlinks = false
 	quotepath = false
 	repositoryformatversion = 0
@@ -14,12 +19,16 @@
 	ignorecase = true
 	quotepath = false
 
+[push]
+	default = matching
+
 [i18n]
 	commitencoding = utf-8
 	logoutputencoding = cp866
 
 [color]
 	ui = auto
+	status = always
 
 [merge]
 	tool = vimdiff
@@ -60,6 +69,7 @@
 	ri2 = rebase -i HEAD~2
 	ri3 = rebase -i HEAD~3
 	ri4 = rebase -i HEAD~4
+	ri5 = rebase -i HEAD~5
 
 	sc = svn dcommit
 	sf = show --pretty="format:" --name-only 
