@@ -36,6 +36,7 @@
 
 [alias]
 	st = status
+	stn = status -uno
 	ci = commit
 	ca = commit --amend
 	co = checkout
