@@ -57,6 +57,7 @@ fi
 # -[ aliases ]-
 alias cp='cp -i'
 alias fname='find . -name '
+alias git-svn='git svn'
 alias gvim='gvim -p'
 alias h='history'
 alias ll='ls -l'
@@ -72,12 +73,31 @@ if [[ -f /usr/bin/grc ]]; then
 	alias cvs="grc --colour=auto cvs"
 	alias cat="grc cat"
 	alias diff="grc --colour=auto diff"
+	alias gcc="grc --colour=auto gcc"
 	alias head="grc head"
+	alias log="grc --colour=auto log"
 	alias make="grc --colour=auto make"
 	alias netstat="grc --colour=auto netstat"
 	alias ping="grc --colour=auto ping"
 	alias tail="grc tail"
 	alias traceroute="grc --colour=auto traceroute"
+
+	alias svn="grc --colour=auto svn"
+	alias svnc='grc --colour=auto svn st | grep "^C"'
+	alias svnd='grc --colour=auto svn diff --diff-cmd diff -x -uw'
+	alias svndp='grc --colour=auto svn diff --diff-cmd /usr/bin/diff -x "-i -b"'
+	alias svnst='grc --colour=auto svn st | grep -v "^?"'
+	alias svnstn='grc --colour=auto svn status | grep -v "^?" | grep -v "^ M"'
+
+	alias logc="grc cat"
+	alias logt="grc tail"
+	alias logh="grc head"
+else
+	alias svnc='svn st | grep "^C"'
+	alias svnd='svn diff --diff-cmd diff -x -uw'
+	alias svndp='svn diff --diff-cmd /usr/bin/diff -x "-i -b"'
+	alias svnst='svn st | grep -v "^?"'
+	alias svnstn='svn status | grep -v "^?" | grep -v "^ M"'
 fi
 
 # vim: ts=4 sw=4 ft=zsh noet
