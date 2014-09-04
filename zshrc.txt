@@ -63,6 +63,7 @@ alias h='history'
 alias ll='ls -l'
 alias ls='ls --color=auto'
 alias ltr='ls -ltr'
+alias make='nocorrect make'
 alias mv='mv -i'
 alias pep8='pep8 --max-line-length=85'
 alias rm='rm -i'
@@ -76,7 +77,7 @@ if [[ -f /usr/bin/grc ]]; then
 	alias gcc="grc --colour=auto gcc"
 	alias head="grc head"
 	alias log="grc --colour=auto log"
-	alias make="grc --colour=auto make"
+	alias make="nocorrect grc --colour=auto make"
 	alias netstat="grc --colour=auto netstat"
 	alias ping="grc --colour=auto ping"
 	alias tail="grc tail"
