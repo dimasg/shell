@@ -17,6 +17,8 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+os_type=$(uname)
+
 export PATH="$HOME/bin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 export EDITOR=vim
@@ -62,6 +64,7 @@ alias gvim='gvim -p'
 alias h='history'
 alias ll='ls -l'
 alias ls='ls --color=auto'
+[[ $os_type == 'Darwin' ]] && alias ls='ls -G'
 alias ltr='ls -ltr'
 alias make='nocorrect make'
 alias mv='mv -i'
