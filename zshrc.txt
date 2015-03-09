@@ -22,7 +22,6 @@ os_type=$(uname)
 export PATH="$HOME/bin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 export EDITOR=vim
-export GREP_OPTIONS='--color=auto'
 
 # -[ history ]-
 HISTFILE=~/.zsh_history
@@ -60,6 +59,7 @@ fi
 alias cp='cp -i'
 alias fname='find . -name '
 alias git-svn='git svn'
+alias grep='grep --color=auto'
 alias gvim='gvim -p'
 alias h='history'
 alias ll='ls -l'
