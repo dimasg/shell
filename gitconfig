@@ -70,8 +70,10 @@
 	kdo = !gitk --date-order
 	kado = !gitk --all --date-order
 	kasd = !gitk --all --simplify-by-decoration
-	
+
+	pr = pull --rebase
 	prs = pull --recurse-submodules
+	prrs = pull --rebase --recurse-submodules
 	ri = rebase -i
 	ri2 = rebase -i HEAD~2
 	ri3 = rebase -i HEAD~3
