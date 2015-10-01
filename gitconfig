@@ -61,7 +61,6 @@
 
 # для сложных ветвлений
 	lsd = log --graph '--pretty=tformat:%Cblue%h%Creset %Cgreen%ar%Creset %Cblue%d%Creset %s' --all --simplify-by-decoration
-	ru = remote update
 	sb = show-branch --sha1-name
 	ls-del = ls-files -d
 	ls-mod = ls-files -m # включая удалённые файлы
@@ -72,11 +71,15 @@
 	kado = !gitk --all --date-order
 	kasd = !gitk --all --simplify-by-decoration
 	
+	prs = pull --recurse-submodules
 	ri = rebase -i
 	ri2 = rebase -i HEAD~2
 	ri3 = rebase -i HEAD~3
 	ri4 = rebase -i HEAD~4
 	ri5 = rebase -i HEAD~5
+	ri6 = rebase -i HEAD~6
+	ri7 = rebase -i HEAD~7
+	ru = remote update
 
 	sc = svn dcommit
 	sf = show --pretty="format:" --name-only 
