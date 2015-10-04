@@ -37,9 +37,13 @@ export LC_TIME="en_GB.UTF-8"
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
+	export EDITOR='vim'
 else
-  export EDITOR='mvim'
+	if [[ $os_type == 'Darwin' ]]; then
+		export EDITOR='mvim'
+	else
+		export EDITOR='gvim'
+	fi
 fi
 
 if [[ -x /usr/bin/vimpager ]]; then
