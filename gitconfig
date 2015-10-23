@@ -89,4 +89,7 @@
 	sup = !(git stash && git svn rebase >&2) | grep -v \"No local changes to save\" && git stash pop
 	up = !(git add . && git stash && git pull --rebase >&2) | grep -v \"No local changes to save\" && git stash pop
 
+    # for atlassian pull requests, for example: git prstash origin 1 pulls
+	prstash = "!f() { git fetch $1 refs/pull-requests/$2/from:$3; } ; f"
+
 # vim: ts=4 sw=4 ft=gitconfig noet
