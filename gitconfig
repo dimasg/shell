@@ -73,6 +73,7 @@
 
 	pr = pull --rebase
 	prs = pull --recurse-submodules
+	prsu = !(git pull --rebase && git submodule update)
 	prrs = pull --rebase --recurse-submodules
 	ri = rebase -i
 	ri2 = rebase -i HEAD~2
