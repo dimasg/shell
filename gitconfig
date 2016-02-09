@@ -61,7 +61,9 @@
 
 # для сложных ветвлений
 	lsd = log --graph '--pretty=tformat:%Cblue%h%Creset %Cgreen%ar%Creset %Cblue%d%Creset %s' --all --simplify-by-decoration
+	ru = remote update
 	sb = show-branch --sha1-name
+	sp = show --pretty="format:" --name-only
 	ls-del = ls-files -d
 	ls-mod = ls-files -m # включая удалённые файлы
 	ls-new = ls-files --exclude-standard -o
