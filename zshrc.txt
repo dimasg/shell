@@ -17,6 +17,7 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+autoload -U zmv
 os_type=$(uname)
 
 export PATH="$HOME/bin:$PATH"
@@ -76,6 +77,9 @@ alias pep8='pep8 --max-line-length=85'
 alias rm='rm -i'
 alias tmux='TERM=xterm-256color tmux -u'
 alias vim='vim -p'
+alias zmv='noglob zmv'
+alias zcp='zmv -C'
+alias zln='zmv -L'
 
 if [[ -f /usr/bin/grc ]]; then
 	alias cvs="grc --colour=auto cvs"
