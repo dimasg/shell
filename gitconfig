@@ -85,6 +85,9 @@
 	ri5 = rebase -i HEAD~5
 	ri6 = rebase -i HEAD~6
 	ri7 = rebase -i HEAD~7
+	ri8 = rebase -i HEAD~8
+	ri9 = rebase -i HEAD~9
+	ri10 = rebase -i HEAD~10
 	ru = remote update
 
 	sc = svn dcommit
@@ -102,5 +105,6 @@
 
     # for atlassian pull requests, for example: git prstash origin 1 pulls
 	prstash = "!f() { git fetch $1 refs/pull-requests/$2/from:$3; } ; f"
+	prrs2 = pull --rebase --recurse-submodules
 
 # vim: ts=4 sw=4 ft=gitconfig noet
