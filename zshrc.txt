@@ -11,13 +11,15 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(encode64 git tmux)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
 autoload -U zmv
+autoload -U compinit && compinit
+
 os_type=$(uname)
 
 export PATH="$HOME/bin:$PATH"
@@ -63,6 +65,7 @@ fi
 # -[ aliases ]-
 alias cp='cp -i'
 alias fname='find . -name '
+alias git='nocorrect git'
 alias git-svn='git svn'
 alias grep='grep --color=auto'
 alias gvim='gvim -p'
