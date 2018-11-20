@@ -115,4 +115,7 @@ else
 	alias svnstn='svn status | grep -v "^?" | grep -v "^ M"'
 fi
 
+# win10 enter issue
+#bindkey -s "^[OM" "^J"
+
 # vim: ts=4 sw=4 ft=zsh noet
