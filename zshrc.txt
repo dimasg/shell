@@ -115,6 +115,9 @@ else
 	alias svnstn='svn status | grep -v "^?" | grep -v "^ M"'
 fi
 
+alias gulp='function f() { root_dir=$(git rev-parse --show-toplevel); cd ${root_dir}/application; gulp "$@"; cd -}; f'
+alias yarn='function f() { root_dir=$(git rev-parse --show-toplevel); cd ${root_dir}/application; yarn "$@"; cd -}; f'
+
 # win10 enter issue
 #bindkey -s "^[OM" "^J"
 
