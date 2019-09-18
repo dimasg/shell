@@ -103,7 +103,8 @@
 	staash = stash --include-untracked
 	staaash = stash --all
 
-    # for atlassian pull requests, for example: git prstash origin 1 pulls
+	# for atlassian pull requests, for example: git prstash origin 1 pulls
+	# where 1 - origin repo url, 2 - number of PR and 3 - PR branch
 	prstash = "!f() { git fetch $1 refs/pull-requests/$2/from:$3; } ; f"
 	prrs2 = pull --rebase --recurse-submodules
 
