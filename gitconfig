@@ -106,6 +106,9 @@
 	staash = stash --include-untracked
 	staaash = stash --all
 
+	sshow = "!f() { git stash show stash^{/$*} -p; }; f"
+	sapply = "!f() { git stash apply stash^{/$*}; }; f"
+
 	# for atlassian pull requests, for example: git prstash origin 1 pulls
 	# where 1 - origin repo url, 2 - number of PR and 3 - PR branch
 	prstash = "!f() { git fetch $1 refs/pull-requests/$2/from:$3; } ; f"
