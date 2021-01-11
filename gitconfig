@@ -23,6 +23,9 @@
 [push]
 	default = current
 
+[pull]
+	ff = only
+
 [i18n]
 	commitencoding = utf-8
 	logoutputencoding = cp866
