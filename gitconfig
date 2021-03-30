@@ -2,6 +2,9 @@
 	name = 
 	email = 
 
+#[includeIf "gitdir/~/dev/corp/"]
+#	path = ~/.git_corp
+
 [core]
 # linux
 #	autocrlf = input
