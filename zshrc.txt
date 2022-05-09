@@ -122,4 +122,12 @@ alias yarn='function f() { root_dir=$(git rev-parse --show-toplevel); cd ${root_
 # win10 enter issue
 #bindkey -s "^[OM" "^J"
 
+if [[ $os_type == 'Darwin' ]]; then
+	bindkey -e
+	# Option-Right
+	bindkey '\e\e[C' forward-word
+	# Option-Left
+	bindkey '\e\e[D' backward-word
+fi
+
 # vim: ts=4 sw=4 ft=zsh noet
