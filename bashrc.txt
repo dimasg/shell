@@ -26,6 +26,7 @@ alias ltr='ls -ltr'
 alias rm='rm -i'
 alias cp='cp -i'
 alias fname='find . -name '
+alias grep='grep --color=auto'
 alias mv='mv -i'
 alias vim='vim -p'
 alias gvim='gvim -p'
@@ -64,7 +65,6 @@ if [ -x $VIMPAGER ]; then
 	alias zless=$PAGER
 fi
 export EDITOR=vim
-export GREP_OPTIONS='--color=auto'
 export HISTCONTROL="ignoredups:erasedups"
 export HISTIGNORE="ls:[bf]g:exit:sudo *"
 #export HISTTIMEFORMAT='%h %d %H:%M:%S '
