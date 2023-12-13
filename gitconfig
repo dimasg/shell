@@ -96,6 +96,11 @@
 	ri10 = rebase -i HEAD~10
 	ru = remote update
 
+	rsh = reset HEAD~1
+	rsh2 = reset HEAD~2
+	rshs = reset --soft HEAD~1
+	rshs2 = reset --soft HEAD~2
+
 	sc = svn dcommit
 	sf = show --pretty="format:" --name-only 
 	sr = svn rebase
@@ -108,6 +113,9 @@
 	stsh = stash --keep-index
 	staash = stash --include-untracked
 	staaash = stash --all
+	stshg = "!f() { git stash list -i -G\"$1\"; }; f"
+	stashgrep = "!f() { for i in `git stash list --format=\"%gd\"` ; \
+              do git stash show -p $i | grep -H --label=\"$i\" \"$@\" ; done ; }; f"
 
 	sshow = "!f() { git stash show stash^{/$*} -p; }; f"
 	sapply = "!f() { git stash apply stash^{/$*}; }; f"
