@@ -136,4 +136,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 export HOMEBREW_NO_AUTO_UPDATE=1
+export DOTNET_CLI_TELEMETRY_OPTOUT=1
+
 # vim: ts=4 sw=4 ft=zsh noet
