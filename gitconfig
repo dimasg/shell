@@ -48,11 +48,15 @@
 	co = checkout
 	chp = cherry-pick
 
+	cln = clean -n
+	clf = clean -f
+
 	d = diff -C
 	ds = diff -C --stat
 	dsp = diff -C --stat -p
 	dw = diff -C --color-words
 	dp = diff --patch -U --no-prefix
+	dfs = "!f() { git diff $1 $2 --stat; }; f"
 
 	l = log -C --decorate
 	ls = log -C --stat --decorate
@@ -119,6 +123,8 @@
 
 	sshow = "!f() { git stash show stash^{/$*} -p; }; f"
 	sapply = "!f() { git stash apply stash^{/$*}; }; f"
+	sapply = "!f() { git stash apply stash@{$*}; }; f"
+	scommit = "!f() { git stash store -m $1 $2 }; }; f"
 
 	# for atlassian pull requests, for example: git prstash origin 1 pulls
 	# where 1 - origin repo url, 2 - number of PR and 3 - PR branch
