@@ -119,6 +119,7 @@ fi
 
 alias gulp='function f() { root_dir=$(git rev-parse --show-toplevel); cd ${root_dir}/application; gulp "$@"; cd -}; f'
 alias yarn='function f() { root_dir=$(git rev-parse --show-toplevel); cd ${root_dir}/application; yarn "$@"; cd -}; f'
+# alias dev-...='cd ~/dev/... && tmux new-session \; split-window -h -l 75% \;'
 
 # win10 enter issue
 #bindkey -s "^[OM" "^J"
