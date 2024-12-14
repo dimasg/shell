@@ -132,4 +132,15 @@
 	prstash = "!f() { git fetch $1 refs/pull-requests/$2/from:$3; } ; f"
 	prrs2 = pull --rebase --recurse-submodules
 
+	# difftastic
+
+	# `git log` with patches shown with difftastic.
+    dl = -c diff.external=difft log -p --ext-diff
+
+    # Show the most recent commit with difftastic.
+    ds = -c diff.external=difft show --ext-diff
+
+    # `git diff` with difftastic.
+    dft = -c diff.external=difft diff
+
 # vim: ts=4 sw=4 ft=gitconfig noet
