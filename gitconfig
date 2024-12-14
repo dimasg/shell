@@ -23,6 +23,8 @@
 	quotepath = false
 	pager = less -F -X
 
+    attributesfile = ~/.gitattributes
+
 [push]
 	default = current
 
