@@ -106,7 +106,7 @@
 	rshs2 = reset --soft HEAD~2
 
 	sc = svn dcommit
-	sf = show --pretty="format:" --name-only 
+	sf = show --pretty="format:" --name-only
 	sr = svn rebase
 	ss = submodule status
 	su = submodule update
