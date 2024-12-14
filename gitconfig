@@ -121,10 +121,11 @@
 	stashgrep = "!f() { for i in `git stash list --format=\"%gd\"` ; \
               do git stash show -p $i | grep -H --label=\"$i\" \"$@\" ; done ; }; f"
 
-	sshow = "!f() { git stash show stash^{/$*} -p; }; f"
-	sapply = "!f() { git stash apply stash^{/$*}; }; f"
+	ssh = "!f() { git stash show stash@{$*}; }; f"
+	sshp = "!f() { git stash show stash@{$*} -p; }; f"
 	sapply = "!f() { git stash apply stash@{$*}; }; f"
 	scommit = "!f() { git stash store -m $1 $2 }; }; f"
+	sdrop = "!f() { git stash drop stash@{$*}; }; f"
 
 	# for atlassian pull requests, for example: git prstash origin 1 pulls
 	# where 1 - origin repo url, 2 - number of PR and 3 - PR branch
