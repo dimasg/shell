@@ -138,6 +138,10 @@
 	prstash = "!f() { git fetch $1 refs/pull-requests/$2/from:$3; } ; f"
 	prrs2 = pull --rebase --recurse-submodules
 
+	# word-diff
+	wd = diff --word-diff
+	swd = show --word-diff
+
 	# difftastic
 
 	# `git log` with patches shown with difftastic.
