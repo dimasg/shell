@@ -24,7 +24,7 @@ function fish_title
             end
         else
             # we are NOT inside a git repo, so just use the working-directory
-            echo (pwd)
+            echo (basename (pwd))
         end
     else
         # we are busy running some non-fish command, so use the command name
