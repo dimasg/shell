@@ -1,6 +1,6 @@
 source $HOME/.config/fish/conf.d/abbr.fish
 
-set PATH "$HOME/bin" $PATH "/usr/local/bin"
+set -gx  PATH "$HOME/bin" $PATH "/usr/local/bin"
 
 set -x EDITOR vim
 set -x FZF_DEFAULT_COMMAND 'ag -g "" --hidden --ignore .git'
