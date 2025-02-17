@@ -6,6 +6,10 @@
 # is that I use the name of the current git repo, if any, as
 # opposed to the raw working-directory
 function fish_title
+    if [ $TERM_PROGRAM = 'zed' ] || [ $TERM_PROGRAM = 'vscode' ]
+        return
+    end
+
     set -l command (echo $_)
 
     if test $command = "fish"
