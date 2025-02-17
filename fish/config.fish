@@ -19,6 +19,15 @@ set -x PNPM_HOME "/Users/dvg/Library/pnpm"
 fish_add_path -pm $PNPM_HOME
 # pnpm end
 
+if [ $TERM_PROGRAM = 'zed' ] || [ $TERM_PROGRAM = 'vscode' ]
+    function fish_greeting
+    end
+else
+    function fish_greeting
+        fortune -s | cowsay
+    end
+end
+
 if status is-interactive
     # Commands to run in interactive sessions can go here
 end
