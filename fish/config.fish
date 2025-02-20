@@ -22,6 +22,11 @@ fish_add_path -pm $PNPM_HOME
 if [ $TERM_PROGRAM = 'zed' ] || [ $TERM_PROGRAM = 'vscode' ]
     function fish_greeting
     end
+
+    function fish_prompt
+        echo (pwd)
+        echo "\$ "
+    end
 else
     function fish_greeting
         fortune -s | cowsay
