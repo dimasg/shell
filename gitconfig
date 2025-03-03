@@ -58,10 +58,11 @@
 	clf = clean -f
 
 	d = diff -C
+	dp = diff --patch -U --no-prefix
 	ds = diff -C --stat
 	dsp = diff -C --stat -p
-	dw = diff -C --color-words
-	dp = diff --patch -U --no-prefix
+	dcw = diff -C --color-words
+	dw = diff -w
 	dfs = "!f() { git diff $1 $2 --stat; }; f"
 
 	l = log -C --decorate
