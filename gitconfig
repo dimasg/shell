@@ -23,7 +23,7 @@
 	quotepath = false
 	pager = less -F -X
 
-    attributesfile = ~/.gitattributes
+	attributesfile = ~/.gitattributes
 
 [push]
 	default = current
@@ -43,8 +43,8 @@
 	tool = vimdiff
 
 [merge "mergiraf"]
-    name = mergiraf
-    driver = mergiraf merge --git %O %A %B -s %S -x %X -y %Y -p %P
+	name = mergiraf
+	driver = mergiraf merge --git %O %A %B -s %S -x %X -y %Y -p %P
 
 [alias]
 	st = status
@@ -132,7 +132,7 @@
 	staaash = stash --all
 	stshg = "!f() { git stash list -i -G\"$1\"; }; f"
 	stashgrep = "!f() { for i in `git stash list --format=\"%gd\"` ; \
-              do git stash show -p $i | grep -H --label=\"$i\" \"$@\" ; done ; }; f"
+	          do git stash show -p $i | grep -H --label=\"$i\" \"$@\" ; done ; }; f"
 
 	ssh = "!f() { git stash show stash@{$1}; }; f"
 	sshp = "!f() { git stash show stash@{$1} -p; }; f"
@@ -152,12 +152,12 @@
 	# difftastic
 
 	# `git log` with patches shown with difftastic.
-    dl = -c diff.external=difft log -p --ext-diff
+	dl = -c diff.external=difft log -p --ext-diff
 
-    # Show the most recent commit with difftastic.
-    ds = -c diff.external=difft show --ext-diff
+	# Show the most recent commit with difftastic.
+	ds = -c diff.external=difft show --ext-diff
 
-    # `git diff` with difftastic.
-    dft = -c diff.external=difft diff
+	# `git diff` with difftastic.
+	dft = -c diff.external=difft diff
 
 # vim: ts=4 sw=4 ft=gitconfig noet
