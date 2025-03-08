@@ -25,19 +25,36 @@
 
 	attributesfile = ~/.gitattributes
 
-[push]
-	default = current
-
-[pull]
-	ff = only
-
-[i18n]
-	commitencoding = utf-8
-	logoutputencoding = cp866
+[branch]
+	sort = -committerdate
 
 [color]
 	ui = auto
 	status = always
+
+[column]
+	ui = auto
+
+[commit]
+	verbose = true
+
+[diff]
+	algorithm = histogram
+	colorMoved = plain
+	mnemonicPrefix = true
+	renames = true
+
+[fetch]
+	prune = true
+	pruneTags = true
+	all = true
+
+[help]
+	autocorrect = prompt
+
+[i18n]
+	commitencoding = utf-8
+	logoutputencoding = cp866
 
 [merge]
 	tool = vimdiff
@@ -45,6 +62,19 @@
 [merge "mergiraf"]
 	name = mergiraf
 	driver = mergiraf merge --git %O %A %B -s %S -x %X -y %Y -p %P
+
+[pull]
+	ff = only
+
+[push]
+	default = current
+	autoSetupRemote = true
+	followTags = true
+
+[rerere]
+
+	enabled = true
+	autoupdate = true
 
 [alias]
 	st = status
