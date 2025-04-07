@@ -175,6 +175,7 @@
 	prstash = "!f() { git fetch $1 refs/pull-requests/$2/from:$3; } ; f"
 	prrs2 = pull --rebase --recurse-submodules
 
+	scw = show -C --color-words
 	# word-diff
 	wd = diff --word-diff
 	swd = show --word-diff
@@ -186,6 +187,7 @@
 
 	# Show the most recent commit with difftastic.
 	ds = -c diff.external=difft show --ext-diff
+	sdt = -c diff.external=difft show --ext-diff
 
 	# `git diff` with difftastic.
 	dft = -c diff.external=difft diff
