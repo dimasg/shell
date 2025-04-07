@@ -186,7 +186,7 @@
 	dl = -c diff.external=difft log -p --ext-diff
 
 	# Show the most recent commit with difftastic.
-	ds = -c diff.external=difft show --ext-diff
+	dt = -c diff.external=difft show --ext-diff
 	sdt = -c diff.external=difft show --ext-diff
 
 	# `git diff` with difftastic.
