@@ -83,6 +83,7 @@
 	ca = commit --amend
 	co = checkout
 	chp = cherry-pick
+	chpa = "!f() { git cherry-pick $1^..$2; }; f"
 
 	cln = clean -n
 	clf = clean -f
