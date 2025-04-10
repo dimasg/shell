@@ -169,6 +169,8 @@
 	sapply = "!f() { git stash apply stash@{$*}; }; f"
 	scommit = "!f() { git stash store -m $1 $2 }; }; f"
 	sdrop = "!f() { git stash drop stash@{$*}; }; f"
+	dst = "!f() { git diff stash@{$1} stash@{$2}; }; f"
+	dstc = "!f() { git diff -C --color-words stash@{$1} stash@{$2}; }; f"
 
 	# for atlassian pull requests, for example: git prstash origin 1 pulls
 	# where 1 - origin repo url, 2 - number of PR and 3 - PR branch
