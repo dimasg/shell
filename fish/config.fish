@@ -19,6 +19,9 @@ set -x PNPM_HOME "/Users/dvg/Library/pnpm"
 fish_add_path -pm $PNPM_HOME
 # pnpm end
 
+# fzf
+fzf --fish | source
+
 if [ $TERM_PROGRAM = 'zed' ] || [ $TERM_PROGRAM = 'vscode' ]
     function fish_greeting
     end
