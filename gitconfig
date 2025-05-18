@@ -158,6 +158,7 @@
 	up = !(git add . && git stash && git pull --rebase >&2) | grep -v \"No local changes to save\" && git stash pop
 
 	# stash options
+	sls = stash list
 	stsh = stash --keep-index
 	staash = stash --include-untracked
 	staaash = stash --all
@@ -167,6 +168,7 @@
 
 	ssh = "!f() { git stash show stash@{$1}; }; f"
 	sshp = "!f() { git stash show stash@{$1} -p; }; f"
+	sshpw = "!f() { git stash show stash@{$1} -p -w; }; f"
 	sapply = "!f() { git stash apply stash@{$*}; }; f"
 	scommit = "!f() { git stash store -m $1 $2 }; }; f"
 	sdrop = "!f() { git stash drop stash@{$*}; }; f"
@@ -182,6 +184,7 @@
 	# word-diff
 	wd = diff --word-diff
 	swd = show --word-diff
+	dfcw = diff -U0 -C --color-words --word-diff --no-index
 
 	# difftastic
 
