@@ -1,5 +1,6 @@
 source $HOME/.config/fish/conf.d/abbr.fish
 
+set -gx PATH "$HOME/bin" "$BREWPATH" $PATH /usr/bin /bin /usr/sbin /sbin
 set -gx  PATH "$HOME/bin" $PATH "/usr/local/bin"
 
 set -x EDITOR vim
