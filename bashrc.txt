@@ -12,11 +12,13 @@ fi
 # though this example doesn't produce any.  Do setup for
 # command-line interactivity.
 
-# colors for ls, etc.  Prefer ~/.dir_colors #64489
-if [[ -f ~/.dir_colors ]]; then
-	eval `dircolors -b ~/.dir_colors`
-else
-	eval `dircolors -b /etc/DIR_COLORS`
+if command -v program_name > /dev/null 2>&1; then
+    # colors for ls, etc.  Prefer ~/.dir_colors #64489
+    if [[ -f ~/.dir_colors ]]; then
+        eval `dircolors -b ~/.dir_colors`
+    else
+        eval `dircolors -b /etc/DIR_COLORS`
+    fi
 fi
 
 # User specific aliases and functions
