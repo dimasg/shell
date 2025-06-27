@@ -139,6 +139,9 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
+# fnm
+eval "$(fnm env --use-on-cd --shell zsh)"
+
 export HOMEBREW_NO_AUTO_UPDATE=1
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 
