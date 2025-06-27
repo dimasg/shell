@@ -127,4 +127,16 @@ else
 	alias svnst='svn st | grep -v "^?"'
 fi
 
+# nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+# fnm
+eval "$(fnm env --use-on-cd --shell bash)"
+
+export HOMEBREW_NO_AUTO_UPDATE=1
+export DOTNET_CLI_TELEMETRY_OPTOUT=1
+export DOTNET_WATCH_SUPPRESS_LAUNCH_BROWSER=1
+
 # vim: ts=4 sw=4 ft=sh noet
