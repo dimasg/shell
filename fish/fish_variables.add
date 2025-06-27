@@ -1,1 +1,3 @@
-SETUVAR --path BREWPATH:/opt/homebrew/bin
+SETUVAR --path BREW_PATH:/opt/homebrew
+SETUVAR --path BIN_PATH:/opt/homebrew/bin
+SETUVAR --path DOTNET_PATH:/usr/local/share/dotnet

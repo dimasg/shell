@@ -52,7 +52,10 @@ if [ -f /usr/share/mc/mc.gentoo ]; then
 	. /usr/share/mc/mc.gentoo
 fi
 
-PATH=~/bin:$PATH
+export BREW_PATH=/opt/homebrew
+export BIN_PATH=$BREW_PATH/bin
+export DOTNET_PATH=/usr/local/share/dotnet
+export PATH=/bin:$BIN_PATH:$BREW_PATH/sbin:$PATH:$DOTNET_PATH
 
 if [ -x /usr/bin/vimpager ]; then
 	export VIMPAGER=/usr/bin/vimpager

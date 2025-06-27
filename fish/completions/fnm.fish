@@ -1,1 +1,1 @@
-$BREWPATH/fnm completions --shell=fish
+$BIN_PATH/fnm completions --shell=fish

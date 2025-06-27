@@ -1,7 +1,6 @@
 source $HOME/.config/fish/conf.d/abbr.fish
 
-set -gx PATH "$HOME/bin" "$BREWPATH" $PATH /usr/bin /bin /usr/sbin /sbin
-set -gx  PATH "$HOME/bin" $PATH "/usr/local/bin"
+set -gx PATH "$HOME/bin" "$BIN_PATH" "$BREW_PATH/sbin" "$DOTNET_PATH" "$HOME/.dotnet/tools" /usr/bin /bin /usr/sbin /sbin
 
 set -x EDITOR vim
 set -x FZF_DEFAULT_COMMAND 'ag -g "" --hidden --ignore .git'
