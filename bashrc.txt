@@ -69,6 +69,7 @@ if [ -x $VIMPAGER ]; then
 	alias less=$PAGER
 	alias zless=$PAGER
 fi
+export DFT_BACKGROUND=light
 export EDITOR=vim
 export HISTCONTROL="ignoredups:erasedups"
 export HISTIGNORE="ls:[bf]g:exit:sudo *"

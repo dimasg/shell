@@ -27,6 +27,7 @@ export BIN_PATH=$BREW_PATH/bin
 export DOTNET_PATH=/usr/local/share/dotnet
 export PATH="$HOME/bin:$BIN_PATH:$BREW_PATH/sbin:$PATH:$DOTNET_PATH:$HOME/.dotnet/tools"
 # export MANPATH="/usr/local/man:$MANPATH"
+export DFT_BACKGROUND=light
 export EDITOR=vim
 
 # -[ history ]-
