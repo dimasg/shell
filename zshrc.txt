@@ -69,6 +69,7 @@ fi
 # -[ aliases ]-
 alias cp='cp -i'
 alias fname='find . -name '
+alias finame='find . -iname '
 alias git='nocorrect git'
 alias git-svn='git svn'
 alias grep='grep --color=auto'
