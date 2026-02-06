@@ -199,4 +199,7 @@
 	# `git diff` with difftastic.
 	dft = -c diff.external=difft diff
 
+# [includeIf "gitdir:~/<project root dir>"]
+#  path = ~/.gitconfig-<project>
+#
 # vim: ts=4 sw=4 ft=gitconfig noet
