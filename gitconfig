@@ -181,6 +181,7 @@
 	prrs2 = pull --rebase --recurse-submodules
 
 	scw = show -C --color-words
+	sw = show -w
 	# word-diff
 	wd = diff --word-diff
 	swd = show --word-diff
