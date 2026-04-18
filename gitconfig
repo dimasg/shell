@@ -169,6 +169,7 @@
 	ssh = "!f() { git stash show stash@{$1}; }; f"
 	sshp = "!f() { git stash show stash@{$1} -p; }; f"
 	sshpw = "!f() { git stash show stash@{$1} -p -w; }; f"
+	sshpcw = "!f() { git stash show stash@{$1} -p -C --color-words; }; f"
 	sapply = "!f() { git stash apply stash@{$*}; }; f"
 	scommit = "!f() { git stash store -m $1 $2 }; }; f"
 	sdrop = "!f() { git stash drop stash@{$*}; }; f"
