@@ -1,5 +1,7 @@
 abbr agi "ag --ignore-dir={'bootstrap*','node_modules','build','shopify-app'} --ignore={'*lock*',}"
 abbr dcw "git dcw "
+abbr --set-cursor=% -- fcpm 'for f in *%; cp \$f (string replace __1 __2 \$f); end'
+abbr --set-cursor=% -- fcprx "for f in *%; cp \$f (string replace -r 'old_(.*)' 'new_\$1' \$f); end"
 abbr fname "find . -name "
 abbr fnmi "fnm env --use-on-cd --shell fish | source"
 abbr finame "find . -iname "
